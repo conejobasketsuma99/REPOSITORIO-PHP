@@ -10,7 +10,7 @@ function insertar($use, $cla, $ape, $nom, $fe, $foto, $fotoTamanio)
 
         $Conexion = include("conexion.php");
 
-        $cadena = "INSERT INTO persona(apellido, nombre, fecha,foto,usuario,clave) VALUES ('$ape','$nom','$fe','$contenido','$use','$cla')";
+        $cadena = "INSERT INTO germon(apellido, nombre, fecha,foto,usuario,clave) VALUES ('$ape','$nom','$fe','$contenido','$use','$cla')";
 
         try {
             $resultado = mysqli_query($Conexion, $cadena);
@@ -31,7 +31,7 @@ function insertar($use, $cla, $ape, $nom, $fe, $foto, $fotoTamanio)
 function getUsuarioUsersNames()
 {
     $Conexion = include("conexion.php");
-    $cadena = "SELECT usuario FROM persona ";
+    $cadena = "SELECT usuario FROM germon ";
 
     $consulta = mysqli_query($Conexion, $cadena);
     $html = "<select class='select' style='border-bottom: 1px solid black;
@@ -53,7 +53,7 @@ function getUsuarioUsersNames()
 function getUsuarioUsersNamesModificar()
 {
     $Conexion = include("conexion.php");
-    $cadena = "SELECT usuario FROM persona ";
+    $cadena = "SELECT usuario FROM germon ";
 
     $consulta = mysqli_query($Conexion, $cadena);
     $html = "<select class='selectModificar' style='border-bottom: 1px solid black;
@@ -75,7 +75,7 @@ function getUsuarioUsersNamesModificar()
 function getUsuarioUserName($userName)
 {
     $Conexion = include("conexion.php");
-    $cadena = "SELECT * FROM persona WHERE usuario ='" . $userName . "'";
+    $cadena = "SELECT * FROM germon WHERE usuario ='" . $userName . "'";
     $consulta = mysqli_query($Conexion, $cadena);
     $array = array();
     while ($registro = mysqli_fetch_row($consulta)) {
@@ -87,7 +87,7 @@ function getUsuarioUserName($userName)
 function getUsuarioUserNames()
 {
     $Conexion = include("conexion.php");
-    $cadena = "SELECT usuario FROM persona ";
+    $cadena = "SELECT usuario FROM germon ";
     $consulta = mysqli_query($Conexion, $cadena);
     $array = array();
     while ($registro = mysqli_fetch_row($consulta)) {
@@ -99,7 +99,7 @@ function getUsuarioUserNames()
 function deleteUser($userName)
 {
     $Conexion = include("conexion.php");
-    $cadena = "DELETE FROM persona  WHERE usuario = '$userName'";
+    $cadena = "DELETE FROM germon  WHERE usuario = '$userName'";
     $resultado = mysqli_query($Conexion, $cadena);
 
     return $resultado;
@@ -115,7 +115,7 @@ function modificar($use, $cla, $ape, $nom, $fe, $foto, $fotoTamanio)
 
         $Conexion = include("conexion.php");
 
-        $cadena = "UPDATE  persona SET apellido = '$ape', nombre = '$nom', fecha = '$fe', foto = '$contenido', clave = '$cla' WHERE usuario = '$use'";
+        $cadena = "UPDATE  germon SET apellido = '$ape', nombre = '$nom', fecha = '$fe', foto = '$contenido', clave = '$cla' WHERE usuario = '$use'";
 
         try {
             $resultado = mysqli_query($Conexion, $cadena);
@@ -128,7 +128,7 @@ function modificar($use, $cla, $ape, $nom, $fe, $foto, $fotoTamanio)
     } else {
         $Conexion = include("conexion.php");
 
-        $cadena = "UPDATE  persona SET apellido = '$ape', nombre = '$nom', fecha = '$fe', clave = '$cla' WHERE usuario = '$use'";
+        $cadena = "UPDATE  germon SET apellido = '$ape', nombre = '$nom', fecha = '$fe', clave = '$cla' WHERE usuario = '$use'";
 
         try {
             $resultado = mysqli_query($Conexion, $cadena);
@@ -144,7 +144,7 @@ function modificar($use, $cla, $ape, $nom, $fe, $foto, $fotoTamanio)
 function listar()
 {
     $Conexion = include("conexion.php");
-    $cadena = "SELECT * FROM persona ";
+    $cadena = "SELECT * FROM germon ";
 
     $consulta = mysqli_query($Conexion, $cadena);
     $htmlListar = "";
